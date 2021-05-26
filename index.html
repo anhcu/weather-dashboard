@@ -5,23 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css">
     <title>Weather App</title>
 </head>
 
 <body>
-
+    <nav>Weather Dashboard</nav>
     <div class="container">
-        <div>
-            <h1>Search for a city:</h1>
-            <input type="text" class="inputTxt" placeholder="Enter City"> <br>
-            <input type="submit" value="Submit" class="btn">
-
-            <!-- For Show Details -->
+        <h1>Search for a city:</h1>
+        <div class="search-bar">
+            <input type="text" id="inputTxt" placeholder="Enter City"> 
+            <br></br>
+            <input type="submit" value="Submit" class="btn" >
+        </div>     
+         <!-- For Show Details -->
+    <div>Location</div>
+        <div class="result">  
             <div class="showData"></div>
-        </div>
-
-    </div>
+    </div>   
+    </div> 
 
     <script src="script.js"></script>
 </body>

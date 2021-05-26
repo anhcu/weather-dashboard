@@ -4,23 +4,37 @@
     box-sizing: border-box;
 }
 
+nav {
+    box-sizing: border-box;
+    width: 100vw;
+    
+    /* background-color: gainsboro; */
+    background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
 body {
     height: 100vh;
     width: 100%;
-    background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
+    /* background: linear-gradient(rgb(47,150,163), rgb(48,62,143)); */
     font-family: Arial, Helvetica, sans-serif;
     color: black;
+    background-color: aquamarine;
 }
 
 .container {
     width: 500px;
     margin: 0 auto;
     padding: 10px;
-    text-align: center;
+    float: left;
 }
 
 .container h1 {
     padding: 15px 0px;
+    font-weight: bold;
 }
 
 .container input[type="text"] {
@@ -28,21 +42,21 @@ body {
     width: 300px;
     border: 0;
     outline: none;
-    margin: 0 50px;
     padding-left: 10px;
     font-size: 16px;
     font-weight: bold;
     text-transform: capitalize;
     box-sizing: border-box;
+    border: 2px solid black;
 }
 
 ::placeholder {
-    color: #d4d4d4;
+    color: gray;
 }
 
 .btn {
-    padding: 10px 30px;
-    margin: 10px 0px;
+    /* padding: 10px 30px;
+    margin: 10px 0px; */
     border: none;
     outline: none;
     background: grey;
@@ -50,6 +64,8 @@ body {
     color: black;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    width: 300px;
+    height: 35px;
 }
 
 .btn:hover {
@@ -57,9 +73,16 @@ body {
     color: #000;
 }
 
+.result {
+    margin-bottom: 20px;
+    border: 2px solid black;
+}
+
 .showData {
-    margin: 80px 0px;
+    /* margin: 80px 0px; */
     line-height: 1.6;
+    /* border: 1px solid black; */
+
 }
 
 .showData ul {
@@ -67,15 +90,33 @@ body {
 }
 
 .showData .city {
-    font-size: 5rem;
-}
-
-.showData .temp {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
 }
 
-.showData .desc {
-    font-size: 2rem;
-    text-transform: capitalize;
+.showData .temp {
+    font-size: 1rem;    
 }
+
+.showData .wind {
+    font-size: 1rem;    
+}
+
+.showData .humidity {
+    font-size: 1rem;    
+}
+
+.row {
+    white-space: pre-wrap;
+    height: 80px;
+    border-top: 1px solid white;
+  }
+
+  textarea {
+    background: transparent;
+    border: none;
+    resize: none;
+    color: #000000;
+    border-left: 1px solid black;
+    padding: 10px;
+  }
