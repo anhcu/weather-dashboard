@@ -1,62 +1,36 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header'
+      'menu main main'
+      'menu footer footer';
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
 
-nav {
-    box-sizing: border-box;
-    width: 100vw;
-    
-    /* background-color: gainsboro; */
+.header { 
     background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 30px;
+    grid-area: header; 
 }
-
-body {
-    height: 100vh;
-    width: 100%;
-    /* background: linear-gradient(rgb(47,150,163), rgb(48,62,143)); */
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
-    background-color: aquamarine;
+.menu { 
+    grid-area: menu; 
 }
-
-.container {
-    width: 500px;
-    margin: 0 auto;
-    padding: 10px;
-    float: left;
-}
-
-.container h1 {
-    padding: 15px 0px;
-    font-weight: bold;
-}
-
-.container input[type="text"] {
-    height: 35px;
-    width: 300px;
-    border: 0;
-    outline: none;
-    padding-left: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: capitalize;
-    box-sizing: border-box;
-    border: 2px solid black;
-}
-
-::placeholder {
-    color: gray;
+.main { 
+    grid-area: main; 
 }
 
 .btn {
-    /* padding: 10px 30px;
-    margin: 10px 0px; */
     border: none;
     outline: none;
     background: grey;
@@ -68,55 +42,51 @@ body {
     height: 35px;
 }
 
+.section{
+    
+}
+/* 
+body {
+    height: 100vh;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    background-color: aquamarine;
+}
+
+
+
 .btn:hover {
     background: #fff;
     color: #000;
 }
 
 .result {
-    margin-bottom: 20px;
-    border: 2px solid black;
+
+}
+
+.days {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .showData {
-    /* margin: 80px 0px; */
-    line-height: 1.6;
-    /* border: 1px solid black; */
-
-}
-
-.showData ul {
-    list-style-type: none;
-}
-
-.showData .city {
-    font-size: 3rem;
+    display: flex;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
     font-weight: bold;
+    margin-right: 10px;
+} */
+
+.forcastInfo {
+    margin: 10px;
+    min-width: 150px;
+    background-color: #000080;
+    color: white;
 }
 
-.showData .temp {
-    font-size: 1rem;    
-}
 
-.showData .wind {
-    font-size: 1rem;    
-}
 
-.showData .humidity {
-    font-size: 1rem;    
-}
-
-.row {
-    white-space: pre-wrap;
-    height: 80px;
-    border-top: 1px solid white;
-  }
-
-  textarea {
-    background: transparent;
-    border: none;
-    resize: none;
-    color: #000000;
-    border-left: 1px solid black;
-    padding: 10px;
-  }
+ 
