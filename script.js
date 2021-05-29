@@ -8,6 +8,7 @@ const BaseURL = "http://api.openweathermap.org/data/2.5/";
 const API_Key = "d0521b9849b489989b94ed5dc75d1ee0";
 
 button.addEventListener('click', fiveDay)
+console.log(button)
 
 //Now Add Event Listener
 //change into a function 
@@ -17,21 +18,26 @@ function fiveDay(){
  var cityInput = inputTxt.value;
     // cityInput = "Atlanta"
 
+
     const todayFC = document.getElementById('todayFC');
 
     todayFC.innerText = cityInput + ' (' + getDateFormat(new Date()) + ')'
 
     const parentDiv = document.getElementById('showData')
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=imperial&APPID=${API_Key}`)
+
+
+    // fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=33.749&lon=-84.388&exclude=current&appid=${API_Key}`)
+    
     .then(res => res.json())
     .then(data => {
         console.log(data)
 
         const section = document.createElement('div')
-        section.classList.add('forcastInfo')
+        section.classList.add('todayForcast')
 
         const temp = document.createElement('div')
-        temp.innerText = "Temp: " + data.main.temp
+        temp.innerText = "Temp: " + data.main.temp + "℉"
         temp.classList.add('section')
         section.appendChild(temp)
 
@@ -46,11 +52,13 @@ function fiveDay(){
         section.appendChild(humidity)
         todayFC.appendChild(section)       
     });
-
+    
+// grabbing 5-Day 
     fetch(`https://api.openweathermap.org/data/2.5/forecast/?q=${cityInput}&units=imperial&APPID=${API_Key}`)
         .then(res => res.json())
         .then(data => {
             console.log(data)
+          
             
             var currentDate = null;
 
@@ -64,6 +72,11 @@ function fiveDay(){
                     date.innerText = getDateFormat(new Date(item.dt_txt))
                     date.classList.add('section')
                     section.appendChild(date)
+
+                    const icon = document.createElement('div')
+                    icon.innerText = "" + item.weather[0].icon
+                    icon.classList.add('section')
+                    section.appendChild(icon)
     
                     const temp = document.createElement('div')
                     temp.innerText = "Temp: " + item.main.temp
@@ -82,124 +95,14 @@ function fiveDay(){
                     parentDiv.appendChild(section)
 
                     currentDate = loopDate;
-                }
-
+                    
+                }                
             });
-            // const childDiv = document.createElement('div')
-            // childDiv.innerText = cityInput; 
-            // history.appendChild(childDiv)  
             addToList("historyList", cityInput) 
 
-            // function LoadFromLocalStorage(){
-            //     tabs.forEach(tab => {
-                    
-            //     const section = document.createElement('div')
-            //         var value = localStorage.getItem(tab.id) 
-            //         if(value != null){
-            //             textArea.innerText = value      
-            //         }
-            //         console.log('txtArea')
-            //       })  
-            // }
-            
-
-
- 
-            //When Fill Input Field Then Clear Input Field
-        
-            //Now Show All Data Value
-            // showData.innerHTML = `
-            //     <ul>
-            //         <li class="temp">Temp: ${data.list[3].main.temp}</li>
-            //             <li class="wind">Wind: ${data.list[3].wind.speed}MPH<i class="fas fa-wind"></i></li>
-            //             <li class="humidity">Humidity: ${data.list[3].main.humidity}%</li>   
-            //         </ul>
-            //     `; 
-
-                //setItem in localStorage
-               // console.log(showData.innerHTML)
-              //  localStorage.setItem(cityInput, showData.innerHTML)
-              //  console.log(data)
         });
      
 };
-// function LoadFromLocalStorage(){
-//     data.forEach(input =>{
-//         const data = document.getElementById('inputText' + tab.id)
-//         var value = localStorage.getItem(tab.id)
-//         if(value != null){
-//             data.innerHTML = value
-//         }
-//     })
-// }
-
-// one input area
-// * search cities current weather - 5 day forcast - and save 
-//data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
-//grabs 5 day forecast 
-//grabs current weather 
-
-
-// Step 2: Use the coordinates from the previous method to find the currentweather 
-// function GrabWeather(theData){
-//  var {theLat} = theData
-//  var {theLon } = theData
-
-//  fetch(`${BaseURl}/data/2.5/onecall?lat=${theLat}&lon=${theLon}&units=imperial&appid=${API_Key}`)
-// .then (function (res) {
-//     console.log(res.data)
-// })
-// }
-
-//step 1: grab coordinates based on user input
-// function grabCoordinates(){
-//     const theSearch = inputTxt.value;
-// //test this api route out 
-//     var theUrl = `${BaseURl}/geo/1.0direct?q=${theSearch}$limit=3&appid=${API_Key}`
-//     fetch (theUrl).then(function(){
-//         console.log(res.json())
-//         GrabWeather(data[0])
-//     })
-// }
-
-// Step 3: Create a function that executes the following: Show the current weather card & query the 5 day forcast 
-//with corresponding data recieved from the GrabWeather method (line 69) - city, data
-// function executeMulti(city, data){
-
-// }
-
-// Step 6: setItem of choice in teh localStorage 
-//var divMe = document.createElement('div')
-//showData.append(divMe);
-
-// var HistoryItem = localStorage.getItem('KeyName');
-// diveMe.textContent = HistoryItem
-// function sendToHistory(){
-//     // function LoadFromLocalStorage(){
-//     //     //     data.forEach(input =>{
-//     //     //         const data = document.getElementById('inputText' + tab.id)
-//     //     //         var value = localStorage.getItem(tab.id)
-//     //     //         if(value != null){
-//     //     //             data.innerHTML = value
-// }
-
-// Step 4: Create a method that renders a card (created in JS) with the content from the GrabWeather Api
-// city, weather, timezone
-// function theDisplay() {
-
-// }
-
-//creating elemetns in js example 
-//creating a div
-
-//added the fieDay method (from line 10 to the button)
-
-
-
-//var divMe = document.createElement('div')
-//showData.append(divMe);
-//divMe.textContent = "Hello"
-
 function addToList(listID, listValue) {
     var ul = document.getElementById(listID);
     var li = document.createElement("li");
