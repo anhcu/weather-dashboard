@@ -42,12 +42,12 @@ function fiveDay(){
         section.appendChild(temp)
 
         const wind = document.createElement('div')
-        wind.innerText = "Wind: " + data.wind.speed
+        wind.innerText = "Wind: " + data.wind.speed + "MPH"
         wind.classList.add('section')
         section.appendChild(wind)
 
         const humidity = document.createElement('div')
-        humidity.innerText = "Humidity: " + data.main.humidity
+        humidity.innerText = "Humidity: " + data.main.humidity + "%"
         humidity.classList.add('section')
         section.appendChild(humidity)
         todayFC.appendChild(section)       
@@ -58,6 +58,7 @@ function fiveDay(){
         .then(res => res.json())
         .then(data => {
             console.log(data)
+
           
             
             var currentDate = null;
